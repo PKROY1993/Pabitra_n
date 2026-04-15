@@ -2,781 +2,1107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pabitra Kumar Roy | Transportation Engineering</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Personal website of Pabitra Kumar Roy, MS student in Transportation Engineering at Portland State University." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pabitra Kumar Roy | Portfolio</title>
+  <meta name="description" content="Portfolio of Pabitra Kumar Roy, MSc gradute in Transportation Engineering from Portland State University and having interest on transportation safety research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f7f7fb;
-      --bg-alt: #ffffff;
-      --accent: #1d4ed8;
-      --accent-soft: #dbeafe;
-      --text: #111827;
-      --muted: #4b5563;
-      --border: #e5e7eb;
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --max-width: 1080px;
+      --bg: #06090f;
+      --bg-2: #0c1220;
+      --panel: rgba(255,255,255,0.035);
+      --panel-2: rgba(255,255,255,0.055);
+      --border: rgba(255,255,255,0.09);
+      --border-hover: rgba(255,255,255,0.18);
+      --text: #eef2ff;
+      --muted: #8fa0bd;
+      --muted-2: #586880;
+      --accent: #5ba3f5;
+      --accent-2: #3ed6a0;
+      --accent-3: #9b8fff;
+      --accent-glow: rgba(91,163,245,0.14);
+      --shadow: 0 2px 24px rgba(0,0,0,0.45);
+      --shadow-sm: 0 1px 8px rgba(0,0,0,0.3);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --max: 1200px;
+      --nav-h: 70px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
       color: var(--text);
-      background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 45%, #f3f4f6 100%);
-      min-height: 100vh;
+      background: #06090f;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 5%, rgba(91,163,245,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 10% 80%, rgba(62,214,160,0.05) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    /* Layout */
-    .page {
-      max-width: var(--max-width);
+    body.light {
+      --bg: #f5f7fc;
+      --bg-2: #ffffff;
+      --panel: rgba(15,23,42,0.04);
+      --panel-2: rgba(15,23,42,0.06);
+      --border: rgba(15,23,42,0.1);
+      --border-hover: rgba(15,23,42,0.22);
+      --text: #0f172a;
+      --muted: #4a5c78;
+      --muted-2: #7289a8;
+      --accent: #1d5fc5;
+      --accent-2: #0a8a62;
+      --accent-3: #5148d4;
+      --accent-glow: rgba(29,95,197,0.1);
+      --shadow: 0 2px 20px rgba(15,23,42,0.09);
+      --shadow-sm: 0 1px 6px rgba(15,23,42,0.07);
+    }
+
+    body.light::before {
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 5%, rgba(29,95,197,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 10% 80%, rgba(10,138,98,0.04) 0%, transparent 55%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
-      padding: 1.2rem 1.2rem 3rem;
+      position: relative;
+      z-index: 1;
     }
 
-    header {
+    /* ─── NAV ─────────────────────────────── */
+    .nav {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.7));
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-      margin-bottom: 1.8rem;
+      z-index: 1000;
+      height: var(--nav-h);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      background: rgba(6,9,15,0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.light .nav {
+      background: rgba(245,247,252,0.88);
     }
 
     .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.9rem 1.2rem;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 16px;
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 1.1rem;
       display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-    }
-
-    .brand span:last-child {
-      font-weight: 500;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    nav a {
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
-      text-decoration: none;
-      color: var(--muted);
-    }
-    nav a:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 2rem;
       align-items: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 1.8rem 1.8rem 1.5rem;
-      border: 1px solid var(--border);
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-      font-size: 0.8rem;
-    }
-
-    .pill {
-      padding: 0.15rem 0.65rem;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1e40af;
-      border: 1px solid #bfdbfe;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
       white-space: nowrap;
     }
 
-    .hero p {
-      font-size: 0.96rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(91,163,245,0.2), rgba(62,214,160,0.15));
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
-    .hero-meta {
-      font-size: 0.86rem;
-      color: var(--muted);
+    .search-wrap {
+      flex: 1;
+      max-width: 300px;
+      min-width: 140px;
     }
 
-    .hero-meta strong {
+    .search-pill {
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.875rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .search-pill::placeholder { color: var(--muted-2); }
+
+    .search-pill:focus {
+      border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color .2s, background .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: var(--panel-2);
+    }
+
+    .nav-links a.active { color: var(--accent); }
+
+    .theme-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: background .2s, color .2s;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover { background: var(--panel-2); color: var(--text); }
+
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      padding: 64px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
       color: var(--text);
     }
 
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .hero-title {
+      margin: 20px 0 20px;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+      color: var(--muted);
+      font-weight: 400;
     }
 
-    .profile-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem 1.5rem;
+    .hero-copy {
+      font-size: 0.975rem;
+      color: color-mix(in srgb, var(--text) 75%, var(--muted));
+      line-height: 1.75;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      height: 44px;
+      border-radius: 10px;
+      padding: 0 20px;
       border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      background: transparent;
+      font-family: inherit;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, transform .15s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(91,163,245,0.15), rgba(62,214,160,0.1));
+      border-color: rgba(91,163,245,0.3);
+      color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, rgba(91,163,245,0.22), rgba(62,214,160,0.15));
+      border-color: rgba(91,163,245,0.5);
+    }
+
+    .socials { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: color .2s, border-color .2s, background .2s, transform .15s;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      color: var(--accent);
+      border-color: rgba(91,163,245,0.4);
+      background: var(--panel-2);
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(100%, 360px);
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 12px;
       box-shadow: var(--shadow);
     }
 
-    .profile-name {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.15rem;
+    .hero-card img {
+      width: 100%;
+      min-height: 440px;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 18px;
+      background: #131b2e;
     }
 
-    .profile-role {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .profile-affil {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .link-row {
+    .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.7rem;
-      font-size: 0.85rem;
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .chip {
-      padding: 0.25rem 0.7rem;
+    .badge {
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: #f9fafb;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .chip span.icon {
-      font-size: 1rem;
-    }
-
-    /* Sections */
-    section {
-      margin-bottom: 2.4rem;
-    }
-
-    h2.section-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.75rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.6rem;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 1.6rem;
-    }
-
-    .card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      padding: 1.3rem 1.4rem;
-      border: 1px solid var(--border);
-    }
-
-    .card h3 {
-      font-size: 1.02rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .item-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.94rem;
-    }
-
-    .item-list li + li {
-      margin-top: 0.55rem;
-    }
-
-    .item-heading {
-      font-weight: 600;
-    }
-
-    .item-meta {
-      font-size: 0.8rem;
+      background: var(--panel);
       color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
     }
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.25rem;
-      font-size: 0.75rem;
+    /* ─── SECTIONS ────────────────────────── */
+    .section { padding: 88px 0 0; }
+
+    .section-head {
+      margin-bottom: 32px;
     }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 0.975rem;
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* ─── GRIDS ───────────────────────────── */
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    /* ─── CARDS ───────────────────────────── */
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .25s, box-shadow .25s;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .card h4 { font-size: 1rem; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 8px; }
+
+    .meta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-2);
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .muted { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+
+    .kicker {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(91,163,245,0.25);
+      background: rgba(91,163,245,0.08);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    ul.clean { list-style: none; margin: 14px 0 0; padding: 0; }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 16px;
+      margin: 7px 0;
+      color: color-mix(in srgb, var(--text) 80%, var(--muted));
+      font-size: 0.9rem;
+    }
+
+    ul.clean li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 
     .tag {
-      padding: 0.12rem 0.55rem;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: #f3f4f6;
-      color: #374151;
+      background: rgba(91,163,245,0.08);
+      border: 1px solid rgba(91,163,245,0.18);
+      color: color-mix(in srgb, var(--text) 85%, var(--muted));
+      font-size: 0.82rem;
+      font-weight: 500;
     }
 
-    .timeline-year {
+    /* ─── STAT CARDS ──────────────────────── */
+    .stat strong {
+      display: block;
+      font-size: 2.2rem;
       font-weight: 700;
-      font-size: 0.9rem;
-      margin-top: 0.2rem;
-      color: var(--muted);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--text), var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.1rem;
+    body.light .stat strong {
+      background: linear-gradient(135deg, var(--text), var(--muted));
+      -webkit-background-clip: text;
+      background-clip: text;
     }
 
-    .skills-grid ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.9rem;
+    .stat .muted { font-size: 0.84rem; }
+
+    /* ─── TIMELINE ────────────────────────── */
+    .timeline { display: grid; gap: 14px; }
+
+    .timeline-item {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      transition: border-color .25s;
     }
 
-    .skills-grid li + li {
-      margin-top: 0.3rem;
-    }
+    .timeline-item:hover { border-color: var(--border-hover); }
 
-    /* Awards */
-    .award-year {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
+    /* ─── PUBLICATIONS ────────────────────── */
+    .pub-item { display: grid; gap: 6px; }
 
-    .award-list {
-      list-style: disc;
-      padding-left: 1.2rem;
-      font-size: 0.9rem;
-      margin-top: 0.15rem;
-    }
-
-    /* Contact */
-    .contact-row {
-      font-size: 0.92rem;
-    }
-
-    .contact-row strong {
+    .pub-title {
+      font-size: 0.975rem;
       font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-      padding-top: 1rem;
+    .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+    .mini-link {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
       font-size: 0.8rem;
       color: var(--muted);
-      text-align: center;
+      font-weight: 500;
+      transition: border-color .2s, color .2s, background .2s;
     }
 
-    /* Responsive */
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .mini-link:hover {
+      color: var(--accent);
+      border-color: rgba(91,163,245,0.4);
+      background: rgba(91,163,245,0.06);
+    }
+
+    /* ─── CONTACT ─────────────────────────── */
+    .contact-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+    .contact-chip {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+
+    .contact-chip:hover {
+      color: var(--accent);
+      border-color: rgba(91,163,245,0.4);
+      background: rgba(91,163,245,0.06);
+    }
+
+    /* ─── FOOTER ──────────────────────────── */
+    .footer {
+      padding: 64px 0 40px;
+      text-align: center;
+      color: var(--muted-2);
+      font-size: 0.875rem;
+    }
+
+    .divider {
+      height: 1px;
+      margin-bottom: 36px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────── */
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-card { justify-self: start; max-width: 320px; }
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { gap: 0; }
+      .nav-links a { padding: 6px 7px; font-size: 0.82rem; }
+    }
+
+    @media (max-width: 760px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .nav-inner { flex-wrap: wrap; height: auto; padding: 12px 0; }
+      .search-wrap { order: 3; max-width: 100%; width: 100%; }
+      .hero { padding: 40px 0 44px; }
+      .hero-card img { min-height: 320px; }
+      .section { padding: 64px 0 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <span>PKR</span>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">🚦</span>
         <span>Pabitra Kumar Roy</span>
+      </a>
+
+      <div class="search-wrap">
+        <input class="search-pill" id="siteSearch" type="text" placeholder="Ctrl + K to search..." list="searchOptions" />
+        <datalist id="searchOptions">
+          <option value="About Me"></option>
+          <option value="Experience"></option>
+          <option value="Projects"></option>
+          <option value="Publications"></option>
+          <option value="Education"></option>
+          <option value="Tools"></option>
+          <option value="Awards"></option>
+          <option value="Contact"></option>
+        </datalist>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#industry">Industry Experience</a></li>
-          <li><a href="#teaching">Teaching</a></li>
-          <li><a href="#media">Media</a></li>
-          <li><a href="#memberships">Memberships</a></li>
-          <li><a href="#training">Training</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#tools">Tools</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
     </div>
   </header>
 
-  <div class="page">
-    <!-- HERO / HOME -->
-    <section id="home" class="hero">
-      <div class="hero-card">
-        <h1 class="hero-title">Pabitra Kumar Roy</h1>
-        <div class="hero-subtitle">
-          MS Student in Transportation Engineering · Portland State University
-        </div>
+  <main id="home">
 
-        <div class="hero-pill-row">
-          <span class="pill">Traffic safety</span>
-          <span class="pill">Econometric modeling</span>
-          <span class="pill">Travel demand modeling</span>
-          <span class="pill">Intelligent transportation systems</span>
-          <span class="pill">Smart cities</span>
-          <span class="pill">CAV & AV safety</span>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Transportation Engineering Researcher</div>
+          <h1>Pabitra.</h1>
+          <div class="hero-title">
+            Traffic safety · Crash analytics · Speed management · Intelligent transportation systems
+          </div>
+          <p class="hero-copy">
+            I have completed my MSc in Transportation Engineering from Portland State University, Oregon and a transportation
+            engineering researcher with more than eight years of combined industry and research experience.
+            My work connects advanced econometric modeling, roadway safety analysis, emergency response
+            performance, speed management strategies, and connected and automated vehicle applications
+            to support practical, data-driven transportation decisions.
+          </p>
 
-        <!-- Replace this paragraph with your exact intro text if you like -->
-        <p>
-          I am a graduate research assistant in the Transportation Lab at Portland State University,
-          working under the supervision of Dr. Tanmoy Bhowmik. My work focuses on traffic safety and
-          behavior, with a strong emphasis on advanced econometric methods and data-driven insights
-          for safer and more efficient transportation systems.
-        </p>
-
-        <p>
-          Beyond research, I am actively involved in student leadership and community building at PSU,
-          collaborating with peers, faculty, and practitioners across multiple transportation and
-          student organizations.
-        </p>
-
-        <div class="hero-meta">
-          <div><strong>Current program:</strong> MS in Transportation Engineering, PSU</div>
-          <div><strong>Expected graduation:</strong> November 2025</div>
-        </div>
-      </div>
-
-      <div class="hero-side">
-        <div class="profile-card">
-          <div class="profile-name">Pabitra Kumar Roy</div>
-          <div class="profile-role">Graduate Research Assistant</div>
-          <div class="profile-affil">
-            Department of Civil &amp; Environmental Engineering<br />
-            Portland State University, USA
+          <div class="cta-row">
+            <a class="btn btn-primary" href="resume.pdf" target="_blank">↓ Download Resume</a>
+            <a class="btn" href="#publications">Selected Research →</a>
+            <div class="socials">
+              <a class="icon-btn" href="https://github.com/PKROY1993" target="_blank" title="GitHub">GH</a>
+              <a class="icon-btn" href="https://www.linkedin.com/in/pabitra93/" target="_blank" title="LinkedIn">in</a>
+              <a class="icon-btn" href="https://scholar.google.com/citations?user=ILZV7zEAAAAJ&hl=en" target="_blank" title="Google Scholar">GS</a>
+              <a class="icon-btn" href="https://sites.google.com/pdx.edu/pabitra" target="_blank" title="Google Site">WS</a>
+              <a class="icon-btn" href="mailto:pabitraroy93@gmail.com" title="Email">@</a>
+            </div>
           </div>
 
-          <div class="link-row">
-            <!-- Replace these # with your real profile links -->
-            <a class="chip" href="https://www.linkedin.com" target="_blank" rel="noopener">
-              <span class="icon">🔗</span><span>LinkedIn</span>
-            </a>
-            <a class="chip" href="https://github.com" target="_blank" rel="noopener">
-              <span class="icon">💻</span><span>GitHub</span>
-            </a>
-            <a class="chip" href="#contact">
-              <span class="icon">✉️</span><span>Email</span>
-            </a>
+          <div class="hero-badges">
+            <span class="badge">MSc in Transportation Engineering · Portland State University</span>
+            <span class="badge">Traffic Safety Analytics</span>
+            <span class="badge">Econometric Modeling</span>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Education</h3>
-          <ul class="item-list">
-            <li>
-              <div class="item-heading">MS, Transportation Engineering</div>
-              <div class="item-meta">
-                Portland State University, USA · 2024 – Nov 2025 (expected)
-              </div>
-            </li>
-            <li>
-              <div class="item-heading">BSc, Civil Engineering</div>
-              <div class="item-meta">
-                Rajshahi University of Engineering &amp; Technology, Bangladesh · 2016
-              </div>
-            </li>
-          </ul>
+        <div class="hero-card">
+          <img src="profile.jpg" alt="Pabitra Kumar Roy profile photo" />
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2 class="section-title">Research &amp; Publications</h2>
-
-      <div class="two-col">
-        <div class="card">
-          <h3>Ongoing Research Projects</h3>
-          <ul class="item-list">
-            <li>
-              <div class="item-heading">
-                Crash modeling at the Oregon census block level
-              </div>
-              <div class="item-meta">
-                Graduate Research Assistant, Portland State University · 2024 – Present
-              </div>
-              <div class="tag-row">
-                <span class="tag">Crash types</span>
-                <span class="tag">Unobserved heterogeneity</span>
-                <span class="tag">Safety performance</span>
-              </div>
-            </li>
-
-            <li>
-              <div class="item-heading">
-                Copula-based modeling of emergency response timelines
-              </div>
-              <div class="item-meta">
-                Analysis of EMS reporting, response, clearance, and transport times on interstate facilities.
-              </div>
-              <div class="tag-row">
-                <span class="tag">Copula models</span>
-                <span class="tag">Incident management</span>
-              </div>
-            </li>
-
-            <li>
-              <div class="item-heading">
-                Post-COVID trends in distraction-related crashes
-              </div>
-              <div class="item-meta">
-                Study of distraction behavior and collision patterns with Illinois crash data.
-              </div>
-              <div class="tag-row">
-                <span class="tag">Driver behavior</span>
-                <span class="tag">Distraction</span>
-              </div>
-            </li>
-
-            <li>
-              <div class="item-heading">
-                Impaired driving behavior &amp; lane departure crashes
-              </div>
-              <div class="item-meta">
-                Investigation of impaired driving risk factors and roadway geometry.
-              </div>
-              <div class="tag-row">
-                <span class="tag">Impaired driving</span>
-                <span class="tag">Lane departure</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Publications &amp; Outputs</h3>
-          <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.7rem;">
-            Add your published and in-preparation papers here. For example:
-          </p>
-          <ul class="item-list">
-            <li>
-              <div class="item-heading">
-                【Paper Title 1】
-              </div>
-              <div class="item-meta">
-                Author list · Journal / Conference · Year
-              </div>
-            </li>
-            <li>
-              <div class="item-heading">
-                【Paper Title 2】
-              </div>
-              <div class="item-meta">
-                Author list · Journal / Conference · Year
-              </div>
-            </li>
-          </ul>
-          <p style="font-size: 0.86rem; color: var(--muted); margin-top: 0.8rem;">
-            <!-- You can link to Google Scholar or ORCID here -->
-            You can also link to your full publication list on Google Scholar, ORCID, or institutional
-            repositories.
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">About Me</div>
+          <h2>Research interests &amp; profile</h2>
+          <p>
+            My research interests span traffic safety, econometric modeling, travel demand modeling,
+            intelligent transportation systems, smart cities, connected and autonomous vehicle technology,
+            and autonomous vehicle safety. I combine rigorous quantitative methods with field-based
+            engineering understanding to produce research that is both technically strong and practically useful.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- INDUSTRY EXPERIENCE -->
-    <section id="industry">
-      <h2 class="section-title">Industry Experience (8+ Years)</h2>
+        <div class="grid-2">
+          <div class="card">
+            <span class="kicker">Research Themes</span>
+            <h3>What I work on</h3>
+            <ul class="clean">
+              <li>Crash frequency and severity modeling across spatial zones and roadway contexts</li>
+              <li>Risky driving behavior analysis, including alcohol-impaired, distracted, and aggressive driving</li>
+              <li>Speed management, speed feedback signs, and speed activated message sign effectiveness</li>
+              <li>Emergency medical service reporting, response, clearance, and transportation time analysis</li>
+              <li>Connected and automated vehicle control, safety, and intersection operations</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Traffic Safety</span>
+              <span class="tag">Crash Severity</span>
+              <span class="tag">Speed Management</span>
+              <span class="tag">EMS Analysis</span>
+              <span class="tag">CAV Systems</span>
+            </div>
+          </div>
 
-      <div class="card">
-        <ul class="item-list">
-          <li>
-            <div class="item-heading">Office Engineer (OE)</div>
-            <div class="item-meta">
-              SMEC International Pty Ltd, Bangladesh · Oct 2023 – Dec 2023
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">Site Supervision Engineer (SSE)</div>
-            <div class="item-meta">
-              SMEC International Pty Ltd, Bangladesh · Apr 2021 – Sep 2023
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">Site Supervision Engineer (SSE)</div>
-            <div class="item-meta">
-              SMEC International Pty Ltd, China · Sep 2018 – Mar 2021
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">Assistant Engineer (QA/QC)</div>
-            <div class="item-meta">
-              Next Spaces Ltd, Bangladesh · Jun 2017 – Sep 2018
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">Assistant Engineer (Construction)</div>
-            <div class="item-meta">
-              MAK Estate Development Ltd, Bangladesh · Dec 2015 – Jun 2017
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+          <div class="card">
+            <span class="kicker">Profile Snapshot</span>
+            <h3>Quick overview</h3>
+            <ul class="clean">
+              <li>MS in Transportation Engineering from Portland State University (GPA 3.81)</li>
+              <li>Graduate Research Assistant experience spanning PSU and UMaine research environments</li>
+              <li>More than eight years of industry experience across roads, bridges, tunneling, viaducts, pavements, and quality assurance</li>
+              <li>Leadership experience through ITE-STEP, student organizations, and academic service</li>
+            </ul>
+          </div>
+        </div>
 
-    <!-- TECHNICAL SKILLS -->
-    <section id="skills">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="card">
-          <h3>Programming</h3>
-          <ul>
-            <li>Python</li>
-            <li>R</li>
-            <li>GAUSS</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Data &amp; Analysis</h3>
-          <ul>
-            <li>SPSS</li>
-            <li>ArcGIS</li>
-            <li>MS Office</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Design &amp; CAD</h3>
-          <ul>
-            <li>AutoCAD</li>
-            <li>MicroStation</li>
-            <li>OpenRoads</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Structural / Geotechnical</h3>
-          <ul>
-            <li>ETABS</li>
-            <li>MIDAS GTS NX</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Visualization &amp; Communication</h3>
-          <ul>
-            <li>Canva</li>
-          </ul>
+        <div class="grid-4" style="margin-top: 16px;">
+          <div class="card stat">
+            <strong>8+</strong>
+            <span class="muted">Years of combined industry and research experience</span>
+          </div>
+          <div class="card stat">
+            <strong>3.81</strong>
+            <span class="muted">GPA — MS in Transportation Engineering, PSU</span>
+          </div>
+          <div class="card stat">
+            <strong>3rd</strong>
+            <span class="muted">ASA TSIG Clifford Spiegelman Student Paper Competition</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- HONORS & AWARDS -->
-    <section id="awards">
-      <h2 class="section-title">Honors &amp; Awards</h2>
-      <div class="card">
-        <div class="award-year">2025</div>
-        <ul class="award-list">
-          <li>TRB 2025 Conference Travel Grant (ITE-STEP PSU) – $1,000</li>
-          <li>ITE-STEP PSU Student Leadership Scholarship – $400 (Fall)</li>
-          <li>Student Leadership Fellows Scholarship – $600 + $600 (Winter &amp; Spring)</li>
-          <li>Certificate of Recognition as Student Leader (Winter, SALP-PSU)</li>
-        </ul>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Experience</div>
+          <h2>Research &amp; industry history</h2>
+          <p>
+            Research, leadership, and engineering experience combining quantitative safety analysis
+            with real-world project delivery.
+          </p>
+        </div>
 
-        <div class="award-year">2024</div>
-        <ul class="award-list">
-          <li>Oregon ITE Traffic Bowl – 2nd Place (team award, OR-ITE) – $500</li>
-          <li>PacTrans 2024 Conference Travel Grant (TREC-PSU) – $1,500</li>
-          <li>Student Leadership Fellows Scholarship – $600 + $600 (Spring &amp; Fall)</li>
-          <li>Certificate of Recognition as Student Leader (Fall, SALP-PSU)</li>
-        </ul>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="meta">2026 – Present</div>
+            <p class="muted">
+              Doctoral research aligned with transportation safety, speed management, and intelligent mobility
+              systems, including projects with direct Maine transportation relevance.
+            </p>
+            <ul class="clean">
+              <li>Research on speed activated message signs and speed feedback sign effectiveness</li>
+              <li>Contributing to data-driven safety and operational improvement studies</li>
+              <li>Expanding research in advanced modeling and mobility systems</li>
+            </ul>
+          </div>
 
-        <div class="award-year">2022</div>
-        <ul class="award-list">
-          <li>Karnaphuli Tunnel Project Video Contest (CCCC-KTP) – $500</li>
-        </ul>
+          <div class="timeline-item">
+            <div class="meta">01/2024 – 12/2025</div>
+            <h4>Graduate Research Assistant · Portland State University</h4>
+            <p class="muted">
+              Research focused on predictive crash modeling and driver behavior to inform traffic safety
+              countermeasures and intersection design improvements using econometric and data-driven methods.
+            </p>
+            <ul class="clean">
+              <li>Applied spatial data science and advanced statistical modeling to transportation safety data</li>
+              <li>Worked with Python, R, SPSS, ArcGIS, MicroStation, and AutoCAD</li>
+              <li>Supported instructional and research communication activities in transportation engineering</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="meta">09/2018 – 12/2023</div>
+            <h4>Office Engineer / Site Supervision Engineer · SMEC International Pty Ltd.</h4>
+            <p class="muted">
+              Worked on the Bangabandhu Sheikh Mujibur Rahman Tunnel project, including tunnel supervision,
+              segment production oversight, roadway and viaduct activities, and QC/QA coordination
+              across Bangladesh and China.
+            </p>
+            <ul class="clean">
+              <li>Supervised tunnel, viaduct, roadwork, toll plaza, and ancillary facility construction</li>
+              <li>Oversaw tunnel segment production quality assurance in China</li>
+              <li>Managed project reporting, coordination, compliance, and technical documentation</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="meta">12/2015 – 09/2018</div>
+            <h4>Assistant Engineer Roles · QA/QC and Construction</h4>
+            <p class="muted">
+              Earlier roles included quality assurance, site supervision, material and document control,
+              and technical coordination for geotechnical and construction projects.
+            </p>
+            <ul class="clean">
+              <li>Assistant Engineer (QA/QC) — Next Spaces Limited</li>
+              <li>Assistant Engineer (Construction) — MAK Estate Development Ltd.</li>
+              <li>Built a strong field foundation that now supports applied transportation research</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- TEACHING -->
-    <section id="teaching">
-      <h2 class="section-title">Teaching</h2>
-      <div class="card">
-        <p style="font-size: 0.92rem; color: var(--muted);">
-          Add your teaching experience here. For example, list any courses or labs you have assisted with,
-          guest lectures you have delivered, or mentoring and tutoring roles at PSU or in previous positions.
-        </p>
-        <ul class="item-list">
-          <li>
-            <div class="item-heading">【Course / Lab Name】</div>
-            <div class="item-meta">Teaching Assistant · Institution · Term / Year</div>
-          </li>
-        </ul>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Projects</div>
+          <h2>Current research projects</h2>
+          <p>Active research activities and ongoing funded projects across UMaine and Portland State University.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <span class="kicker">University of Maine</span>
+            <div class="pub-title">Evaluating the Effectiveness of Speed Activated Message Signs in Maine</div>
+            <p class="muted" style="margin-top: 8px;">Client: Maine Department of Transportation &nbsp;·&nbsp; PI: Ruijie "Rebecca" Bian &nbsp;·&nbsp; January 2026 – Present</p>
+          </article>
+
+          <article class="card">
+            <span class="kicker">University of Maine</span>
+            <div class="pub-title">Longitudinal Effectiveness of Speed Feedback Signs at Rural Transition Zones</div>
+            <p class="muted" style="margin-top: 8px;">Client: Maine Department of Transportation &nbsp;·&nbsp; PI: Ruijie "Rebecca" Bian &nbsp;·&nbsp; January 2026 – Present</p>
+          </article>
+
+          <article class="card">
+            <span class="kicker">Portland State University</span>
+            <div class="pub-title">Toolkit for Reducing Substance-Impaired Driving for the Last Leg of the Journey</div>
+            <p class="muted" style="margin-top: 8px;">BTSCRP BTS-39 &nbsp;·&nbsp; National Academies / TRB &nbsp;·&nbsp; PSU PI: Tanmoy Bhowmik &nbsp;·&nbsp; August – December 2025</p>
+          </article>
+
+          <article class="card">
+            <span class="kicker">Portland State University</span>
+            <div class="pub-title">SafeSpot: A Crowdsourcing Tool for Real-Time Near-Miss Detection and Risk Mapping</div>
+            <p class="muted" style="margin-top: 8px;">PacTrans Project &nbsp;·&nbsp; USDOT Region 10 &nbsp;·&nbsp; PSU PI: Tanmoy Bhowmik &nbsp;·&nbsp; August – December 2025</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- MEDIA -->
-    <section id="media">
-      <h2 class="section-title">Media</h2>
-      <div class="card">
-        <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 0.6rem;">
-          Use this section to highlight interviews, videos, project features, or news articles where your
-          work has been featured.
-        </p>
-        <ul class="item-list">
-          <li>
-            <div class="item-heading">【Media item title or description】</div>
-            <div class="item-meta">
-              Link / Platform · Year<br />
-              <a href="#">View media</a>
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Publications &amp; Presentations</div>
+          <h2>Selected research output</h2>
+          <p>Thesis, conference posters, and research papers spanning crash modeling, EMS analysis, and driver behavior.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card pub-item">
+            <span class="kicker">Master's Thesis</span>
+            <div class="pub-title">
+              An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes:
+              Evaluating Crash Risk and Severity Across Zones
             </div>
-          </li>
-        </ul>
+            <p class="muted">
+              Portland State University · Fall 2025. Focused on risky driving behavior, crash occurrence,
+              and injury severity using integrated econometric modeling.
+            </p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://pdxscholar.library.pdx.edu/open_access_etds/6986/" target="_blank">Thesis Page ↗</a>
+              <a class="mini-link" href="https://scholar.google.com/citations?user=ILZV7zEAAAAJ&hl=en" target="_blank">Scholar ↗</a>
+            </div>
+          </article>
+
+          <article class="card pub-item">
+            <span class="kicker">TRB 2026</span>
+            <div class="pub-title">
+              A Copula-Based Approach to Modeling Emergency Medical Services Reporting, Response, Clearance,
+              and Transportation Times for Traffic Incidents on Interstates
+            </div>
+            <p class="muted">
+              Poster and ongoing research exploring the incident timeline and EMS performance on interstates.
+            </p>
+          </article>
+
+          <article class="card pub-item">
+            <span class="kicker">PacTrans 2025 · TRB 2026 · T&amp;DI 2026</span>
+            <div class="pub-title">
+              An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes
+            </div>
+            <p class="muted">
+              Presented across multiple conference settings. Recognized in the ASA TSIG Clifford Spiegelman
+              Student Paper Competition (3rd place, 2026).
+            </p>
+          </article>
+
+          <article class="card pub-item">
+            <span class="kicker">Research in Progress</span>
+            <div class="pub-title">
+              Unraveling Collision Patterns: Econometric Modeling of Crash Types at Oregon Census Block Level
+              with Insights into Unobserved Heterogeneity
+            </div>
+            <p class="muted">
+              Connecting crash types, geography, and latent heterogeneity in transportation safety analysis.
+            </p>
+          </article>
+
+          <article class="card pub-item">
+            <span class="kicker">Research in Progress</span>
+            <div class="pub-title">
+              Investigating the Influencing Factors of Distraction-Related Driving Behavior and Corresponding
+              Collision Patterns in Illinois with Post-COVID-19 Data
+            </div>
+            <p class="muted">
+              A continuing safety research direction involving behavioral crash patterns and explanatory factors.
+            </p>
+          </article>
+
+          <article class="card pub-item">
+            <span class="kicker">Research in Progress</span>
+            <div class="pub-title">
+              Investigating the Relationship Between Impaired Driving Behavior and Lane Departure Crashes
+            </div>
+            <p class="muted">
+              Ongoing work examining impaired driving and lane departure crash relationships.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- MEMBERSHIPS -->
-    <section id="memberships">
-      <h2 class="section-title">Memberships &amp; Service</h2>
-      <div class="card">
-        <ul class="item-list">
-          <li>
-            <div class="item-heading">
-              Vice President, ITE-STEP Chapter, Portland State University
-            </div>
-            <div class="item-meta">
-              Student Chapter of the Institute of Transportation Engineers (ITE)
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">
-              Vice President, Bangladesh Student Association (BSA), PSU
-            </div>
-            <div class="item-meta">
-              Cultural and community organization for Bangladeshi students
-            </div>
-          </li>
-          <li>
-            <div class="item-heading">
-              Associate Editor, Hatfield Graduate Journal of Public Affairs
-            </div>
-            <div class="item-meta">
-              Portland State University · From Oct 2025
-            </div>
-          </li>
-          <!-- Add ASA, TRB committees etc. here if applicable -->
-        </ul>
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Education</div>
+          <h2>Academic pathway</h2>
+          <p>Formal education in civil and transportation engineering spanning three institutions.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="meta">2024 – 2025</div>
+            <h3>MS in Transportation Engineering</h3>
+            <p class="muted" style="margin-bottom: 4px;">Portland State University &nbsp;·&nbsp; GPA 3.81 / 4.00</p>
+            <ul class="clean">
+              <li>Thesis-based graduate study in crash frequency and severity analysis</li>
+              <li>Graduate Research Assistant in the transportation safety lab</li>
+              <li>Research emphasis: aggressive driving, alcohol-impaired driving, and distraction</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="meta">2016</div>
+            <h3>BSc in Civil Engineering</h3>
+            <p class="muted" style="margin-bottom: 4px;">Rajshahi University of Engineering &amp; Technology, Bangladesh &nbsp;·&nbsp; GPA 3.39 / 4.00</p>
+            <ul class="clean">
+              <li>Foundation in structural, geotechnical, and transportation engineering</li>
+              <li>Developed core skills applied throughout industry and research career</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- TRAINING -->
-    <section id="training">
-      <h2 class="section-title">Training &amp; Workshops</h2>
-      <div class="card">
-        <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 0.6rem;">
-          List relevant professional training, workshops, and short courses here (transportation safety,
-          data analysis, software, leadership programs, etc.).
-        </p>
-        <ul class="item-list">
-          <li>
-            <div class="item-heading">【Training / Workshop Title】</div>
-            <div class="item-meta">
-              Provider / Conference · Year
-            </div>
-          </li>
-        </ul>
+    <!-- TOOLS -->
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Tools &amp; Skills</div>
+          <h2>Technical capabilities</h2>
+          <p>Platforms and methods supporting research workflows, safety analysis, and engineering communication.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <h4>Python &amp; R</h4>
+            <p class="muted">pandas, NumPy, data cleaning, econometric modeling, automation, reproducible research analysis</p>
+          </div>
+          <div class="card">
+            <h4>SPSS &amp; Excel</h4>
+            <p class="muted">Statistical analysis, structured research tables, summarization, reporting, and ranking workflows</p>
+          </div>
+          <div class="card">
+            <h4>GIS &amp; Design Software</h4>
+            <p class="muted">ArcGIS, AutoCAD, MicroStation, OpenRoads, TransCAD — spatial analysis and transportation visualization</p>
+          </div>
+          <div class="card">
+            <h4>Research &amp; Communication</h4>
+            <p class="muted">Google Scholar, GitHub, thesis writing, conference posters, technical documentation and dissemination</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section" id="awards">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Awards &amp; Recognition</div>
+          <h2>Highlights &amp; milestones</h2>
+          <p>Selected recognitions, conference participation, and professional achievements.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>2026 Clifford Spiegelman Student Paper Competition</h4>
+            <p class="muted">3rd place awarded by ASA TSIG for the thesis-based paper on risky driving behavior related crashes.</p>
+          </div>
+          <div class="card">
+            <h4>TRB Travel Grants</h4>
+            <p class="muted">TRB conference travel support in both 2025 and 2026, reflecting strong engagement in transportation research dissemination.</p>
+          </div>
+          <div class="card">
+            <h4>Oregon ITE Traffic Bowl</h4>
+            <p class="muted">Second-place team recognition in 2024 and 2025 through the PSU ITE-STEP student chapter.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="card contact-row">
-        <p><strong>Mobile:</strong> +1 (503) 267-8377</p>
-        <p><strong>Email:</strong> <a href="mailto:pabitra@pdx.edu">pabitra@pdx.edu</a></p>
-        <p><strong>Alternate email:</strong> <a href="mailto:pabitraroy93@gmail.com">pabitraroy93@gmail.com</a></p>
-        <p>
-          Department of Civil &amp; Environmental Engineering<br />
-          Portland State University, Portland, Oregon, USA
-        </p>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Contact</div>
+          <h2>Let's connect</h2>
+          <p>
+            Open to collaboration, research discussion, academic networking, and professional opportunities
+            in transportation safety, crash analytics, and intelligent mobility.
+          </p>
+        </div>
+
+        <div class="card" style="max-width: 640px;">
+          <p class="muted" style="margin-bottom: 0;">
+            I am particularly interested in projects connecting transportation safety research with
+            practical implementation — speed management, crash analytics, ITS, and interdisciplinary work
+            that bridges data science and engineering.
+          </p>
+          <div class="contact-box">
+            <a class="contact-chip" href="mailto:pabitraroy93@gmail.com">pabitraroy93@gmail.com</a>
+            <a class="contact-chip" href="https://www.linkedin.com/in/pabitra93/" target="_blank">LinkedIn</a>
+            <a class="contact-chip" href="https://github.com/PKROY1993" target="_blank">GitHub</a>
+            <a class="contact-chip" href="https://scholar.google.com/citations?user=ILZV7zEAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a class="contact-chip" href="https://sites.google.com/pdx.edu/pabitra" target="_blank">Google Site</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      &copy; <span id="year"></span> Pabitra Kumar Roy · Built with GitHub Pages
-    </footer>
-  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="divider"></div>
+      <p>© <span id="year"></span> Pabitra Kumar Roy &nbsp;·&nbsp; UMaine &nbsp;·&nbsp; PSU &nbsp;·&nbsp; RUET</p>
+    </div>
+  </footer>
 
   <script>
-    // Simple script to keep footer year current
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    const activateLink = () => {
+      let current = "";
+      sections.forEach(section => {
+        const offset = section.offsetTop - 100;
+        if (window.scrollY >= offset && window.scrollY < offset + section.offsetHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    };
+
+    window.addEventListener("scroll", activateLink, { passive: true });
+    activateLink();
+
+    const searchInput = document.getElementById("siteSearch");
+    const searchTargets = {
+      "about": "#about", "about me": "#about",
+      "experience": "#experience",
+      "projects": "#projects", "project": "#projects",
+      "publications": "#publications", "publication": "#publications", "presentations": "#publications",
+      "education": "#education",
+      "tools": "#tools",
+      "awards": "#awards",
+      "contact": "#contact"
+    };
+
+    function runSearch() {
+      const raw = searchInput.value.trim().toLowerCase();
+      if (!raw) return;
+      let target = searchTargets[raw];
+      if (!target) {
+        const match = Object.keys(searchTargets).find(k => k.includes(raw) || raw.includes(k));
+        if (match) target = searchTargets[match];
+      }
+      if (target) {
+        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+        searchInput.blur();
+      }
+    }
+
+    searchInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); runSearch(); } });
+    document.addEventListener("keydown", e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault(); searchInput.focus(); searchInput.select();
+      }
+    });
+
+    const themeBtn = document.getElementById("themeBtn");
+    if (localStorage.getItem("pkroy-theme") === "light") document.body.classList.add("light");
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      localStorage.setItem("pkroy-theme", document.body.classList.contains("light") ? "light" : "dark");
+    });
   </script>
 </body>
 </html>
